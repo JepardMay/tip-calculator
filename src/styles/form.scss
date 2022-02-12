@@ -1,0 +1,52 @@
+.form {
+  display: flex;
+  width: 100%;
+  min-height: 482px;
+  padding: 17px 25px 30px;
+  background-color: $color-white;
+  border-radius: 24px;
+  box-shadow: 0 10px 25px 10px rgba($color-sherpa-blue, 0.1);
+
+  @include laptop {
+    width: 920px;
+    padding: 32px;
+    padding-left: 48px;
+  }
+
+  &__wrapper {
+    width: 100%;
+
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__column {
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 34px;
+
+    &:first-child {
+      width: calc(100% - 14px);
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    & > .input-wrapper:first-child {
+      margin-top: 14px;
+    }
+
+    @include tablet {
+      flex-shrink: 0;
+      width: calc(50% - 8px);
+      margin-bottom: 0;
+
+      &:first-child {
+        width: calc(50% - 40px);
+      }
+    }
+  }
+}

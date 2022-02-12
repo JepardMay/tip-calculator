@@ -1,0 +1,11 @@
+export const SET_BILL_VALUE = 'SET_BILL_VALUE';
+export const SET_NUMBER_OF_PEOPLE_VALUE = 'SET_NUMBER_OF_PEOPLE_VALUE';
+export const SET_TIP_AMOUNT = 'SET_TIP_AMOUNT';
+export const SET_TOTAL = 'SET_TOTAL';
+export const SET_SELECTED = 'SET_SELECTED';
+export const SET_CUSTOM = 'SET_CUSTOM';
+export const SET_CUSTOM_VALUE = 'SET_CUSTOM_VALUE';
+export const REMOVE_CUSTOM = 'REMOVE_CUSTOM';
+export const INPUT_ERROR = 'INPUT_ERROR';
+export const REMOVE_INPUT_ERROR = 'REMOVE_INPUT_ERROR';
+export const RESET_FORM = 'RESET_FORM';

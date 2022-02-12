@@ -1,0 +1,49 @@
+.attribution {
+  position: absolute;
+  bottom: 20px;
+
+  width: 100%;
+  text-align: center;
+
+  &__link {
+    position: relative;
+    display: inline-block;
+    padding: 0 6px;
+    color: $color-new-york-pink;
+    transition: transform $transition-default;
+    
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 3px;
+      right: 3px;
+      
+      height: 1px;
+      background-color: $color-new-york-pink;
+      transform: scaleX(0);
+      transition: transform $transition-default;
+    }
+
+    &::before {
+      top: -2px;
+      transform-origin: left top;
+    }
+
+    &::after {
+      bottom: -2px;
+      transform-origin: right bottom;
+    }
+
+    &:hover,
+    &:focus {
+      transform: scale(1.1);
+      outline: none;
+
+      &::before,
+      &::after {
+        transform: scaleX(0.5);
+      }
+    }
+  }
+}

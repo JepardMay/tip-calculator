@@ -1,0 +1,39 @@
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 48px;
+  padding: 5px 10px;
+  font-weight: 700;
+  font-size: 24px;
+  text-align: center;
+  text-transform: uppercase;
+  color: $color-white;
+  background-color: $color-sherpa-blue;
+  border: none;
+  border-radius: 5px;
+  box-shadow: none;
+
+  cursor: pointer;
+
+  transition: color $transition-default,
+    background-color $transition-default;
+
+  &:hover,
+  &:focus {
+    color: $color-sherpa-blue;
+    background-color: $color-onahau;
+
+    outline: none;
+  }
+
+  &:disabled {
+    color: $color-sherpa-blue;
+    background-color: rgba($color-onahau, 0.2);
+  }
+
+  &--light {
+    color: $color-sherpa-blue;
+    background-color: $color-light-sea-green;
+  }
+}
