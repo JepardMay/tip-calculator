@@ -31,7 +31,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Frontend Mentor](https://your-solution-url.com)
+- Solution URL: [Frontend Mentor](https://www.frontendmentor.io/solutions/tip-calculator-with-react-and-usecontext-usereducer-hooks-uxxZoqpCS)
 - Live Site URL: [Netlify](https://heuristic-lichterman-e684b3.netlify.app/)
 
 ## My process
