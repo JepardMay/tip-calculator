@@ -33,9 +33,11 @@ const RadioBtn = ({id, value,  text, name, type }) => {
 
   return (
     <div className="radio-btn">
-      {type !== 'input' ? <label htmlFor={id}><span className={selectedTip === id ? 'btn btn--light' : 'btn'}>{text}</span></label> : ''}
+      <label htmlFor={id}>
+        {type !== 'input' ? <span className={selectedTip === id ? 'btn btn--light' : 'btn'}>{text}</span> : ''}
+        <input type="radio" name={name} id={id} value={value} checked={selectedTip === id} onChange={onChange} />
+      </label>
       {type === 'input' ? <Input id={`${id}-input`} label={text} value={customTip} className={selectedTip === id ? 'input-wrapper--no-label input-wrapper--active' : 'input-wrapper--no-label'} placeholder={text} customOnChange={onCustomChange} onFocus={onCustomFocus} onBlur={onCustomBlur} /> : ''} 
-      <input type="radio" name={name} id={id} value={value} checked={selectedTip === id} onChange={onChange} />
     </div>
   );
 };
