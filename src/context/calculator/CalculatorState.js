@@ -50,13 +50,13 @@ const CalculatorState = props => {
         type: REMOVE_INPUT_ERROR,
       });
     }
-    if (id === "bill" && Number(value) >= 0) {
+    if (id === "bill" && (Number(value) >= 0 && Number(value) <= 1000000000)) {
       dispatch({
         type: SET_BILL_VALUE,
         payload: value,
       });
     }
-    if (id === "numberOfPeople" && Number(value) >= 0) {
+    if (id === "numberOfPeople" && (Number(value) >= 0 && Number(value) <= 1000000000)) {
       dispatch({
         type: SET_NUMBER_OF_PEOPLE_VALUE,
         payload: value,
@@ -102,7 +102,7 @@ const CalculatorState = props => {
   };
 
   const setCustomValue = (value) => {
-    if (Number(value) >= 0) {
+    if (Number(value) >= 0 && Number(value) <= 999) {
       dispatch({
         type: SET_CUSTOM_VALUE,
         payload: value,

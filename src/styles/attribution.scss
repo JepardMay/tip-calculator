@@ -10,6 +10,7 @@
     display: inline-block;
     padding: 0 6px;
     color: $color-new-york-pink;
+    transform-origin: center;
     transition: transform $transition-default;
     
     &::before,
@@ -42,7 +43,7 @@
 
       &::before,
       &::after {
-        transform: scaleX(0.5);
+        transform: scaleX(0.6);
       }
     }
   }

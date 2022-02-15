@@ -10,19 +10,21 @@
   text-transform: uppercase;
   color: $color-white;
   background-color: $color-sherpa-blue;
-  border: none;
+  border: 1px solid $color-sherpa-blue;
   border-radius: 5px;
   box-shadow: none;
 
   cursor: pointer;
 
   transition: color $transition-default,
-    background-color $transition-default;
+    background-color $transition-default,
+    border-color $transition-default;
 
   &:hover,
   &:focus {
     color: $color-sherpa-blue;
     background-color: $color-onahau;
+    border-color: $color-onahau;
 
     outline: none;
   }
@@ -30,10 +32,12 @@
   &:disabled {
     color: $color-sherpa-blue;
     background-color: rgba($color-onahau, 0.2);
+    border-color: rgba($color-onahau, 0.2);
   }
 
   &--light {
     color: $color-sherpa-blue;
     background-color: $color-light-sea-green;
+    border-color: $color-light-sea-green;
   }
 }
