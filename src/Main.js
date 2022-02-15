@@ -9,6 +9,7 @@ function Main() {
     <CalculatorState>
       <main className="main">
         <Logo />
+        <h1 className="main__title">Splitter - Tip Calculator App</h1>
         <Form />
         <footer className="attribution">
           Challenge by <a className="attribution__link" href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener noreferrer">Frontend Mentor</a>. Coded by <a className="attribution__link" href="https://github.com/JepardMay" target="_blank" rel="noopener noreferrer">JepardMay</a>.

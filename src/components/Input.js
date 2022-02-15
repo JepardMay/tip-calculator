@@ -14,21 +14,19 @@ const Input = ({ label, id, value, icon, className, placeholder, customOnChange,
 
   return (
     <div className={`input-wrapper ${className} ${error && error[id] ? 'input-wrapper--error' : ''}`}>
-      {label ?
-        <div className="input-wrapper__header">
-          <label htmlFor={id}>{label}</label>
-        {error && error[id] ? <span className='input-wrapper__error'>{error[id]}</span> : ''}
-        </div>
-      : ''}
+      <div className="input-wrapper__header">
+        <label htmlFor={id}>{label}</label>
+      {error && error[id] ? <span className='input-wrapper__error'>{error[id]}</span> : ''}
+      </div>
       {icon ? <Icon icon={icon} /> : ''}
-      <input type="number" id={id && id} value={value} placeholder={placeholder} onChange={customOnChange ? customOnChange : onChange} onFocus={onFocus} onBlur={onBlur} />
+      <input type="number" id={id} value={value} placeholder={placeholder} onChange={customOnChange ? customOnChange : onChange} onFocus={onFocus} onBlur={onBlur} />
     </div>
   )
 };
 
 Input.propTypes = {
-  label: PropTypes.string,
-  id: PropTypes.string,
+  label: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
   value: PropTypes.string,
   icon: PropTypes.string,
   className: PropTypes.string,
