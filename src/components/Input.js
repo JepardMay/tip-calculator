@@ -3,13 +3,15 @@ import PropTypes from 'prop-types';
 import Icon from './Icon';
 import CalculatorContext from '../context/calculator/calculatorContext';
 
-const Input = ({ label, id, value, icon, className, placeholder, customOnChange, onFocus, onBlur }) => {
+const Input = ({ label, id, max, value, icon, className, placeholder, customOnChange, onFocus, onBlur }) => {
   const calculatorContext = useContext(CalculatorContext);
 
   const { setInputValue, error } = calculatorContext;
 
   const onChange = (e) => {
-    setInputValue(e.target.value, e.target.id);
+    let { value, max } = e.target;
+    let newValue = max ? Math.min(Number(value), Number(max)).toString() : value;
+    setInputValue(newValue, e.target.id);
   };
 
   return (
@@ -19,7 +21,7 @@ const Input = ({ label, id, value, icon, className, placeholder, customOnChange,
       {error && error[id] ? <span className='input-wrapper__error'>{error[id]}</span> : ''}
       </div>
       {icon ? <Icon icon={icon} /> : ''}
-      <input type="number" id={id} value={value} placeholder={placeholder} onChange={customOnChange ? customOnChange : onChange} onFocus={onFocus} onBlur={onBlur} />
+      <input type="number" id={id} max={max} value={value} placeholder={placeholder} onChange={customOnChange ? customOnChange : onChange} onFocus={onFocus} onBlur={onBlur} />
     </div>
   )
 };
@@ -27,6 +29,7 @@ const Input = ({ label, id, value, icon, className, placeholder, customOnChange,
 Input.propTypes = {
   label: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
+  max: PropTypes.number,
   value: PropTypes.string,
   icon: PropTypes.string,
   className: PropTypes.string,

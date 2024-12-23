@@ -1,5 +1,6 @@
-import React, { useReducer, useEffect } from 'react';
-import CalcatorContext from './calculatorContext';
+import React, { useReducer, useEffect, useMemo, useCallback } from 'react';
+import PropTypes from 'prop-types';
+import CalculatorContext from './calculatorContext';
 import calculatorReducer from './calculatorReducer';
 import {
   SET_BILL_VALUE,
@@ -64,16 +65,16 @@ const CalculatorState = props => {
     }
   };
 
-  const calculateTipAmount = () => {
+  const calculateTipAmount = useCallback(() => {
     let tipAmount = ((Number(state.bill) * Number(state.tipPercent) / 100) / Number(state.numberOfPeople)).toFixed(2).toString();
 
     dispatch({
       type: SET_TIP_AMOUNT,
       payload: tipAmount,
     });
-  };
+  }, [state.bill, state.tipPercent, state.numberOfPeople]);
 
-  const calculateTotal = () => {
+  const calculateTotal = useCallback(() => {
     let total;
 
     if (Number(state.tipPercent) > 0) {
@@ -86,7 +87,7 @@ const CalculatorState = props => {
       type: SET_TOTAL,
       payload: total,
     });
-  };
+  }, [state.bill, state.tipPercent, state.numberOfPeople]);
 
   const setSelected = (id, value) => {
     dispatch({
@@ -122,30 +123,48 @@ const CalculatorState = props => {
     });
   };
 
+  const value = useMemo(() => ({
+    bill: state.bill,
+    tipPercent: state.tipPercent,
+    selectedTip: state.selectedTip,
+    customTip: state.customTip,
+    numberOfPeople: state.numberOfPeople,
+    tipAmount: state.tipAmount,
+    total: state.total,
+    error: state.error,
+    setInputValue,
+    calculateTipAmount,
+    calculateTotal,
+    setSelected,
+    setCustom,
+    setCustomValue,
+    removeCustom,
+    resetForm
+  }), [
+    state.bill,
+    state.tipPercent,
+    state.selectedTip,
+    state.customTip,
+    state.numberOfPeople,
+    state.tipAmount,
+    state.total,
+    state.error,
+    calculateTipAmount,
+    calculateTotal
+  ]);
+
   return (
-    <CalcatorContext.Provider
-      value={{
-        bill: state.bill,
-        tipPercent: state.tipPercent,
-        selectedTip: state.selectedTip,
-        customTip: state.customTip,
-        numberOfPeople: state.numberOfPeople,
-        tipAmount: state.tipAmount,
-        total: state.total,
-        error: state.error,
-        setInputValue,
-        calculateTipAmount,
-        calculateTotal,
-        setSelected,
-        setCustom,
-        setCustomValue,
-        removeCustom,
-        resetForm
-      }}
-    >
+    <CalculatorContext.Provider value={value}>
       {props.children}
-    </CalcatorContext.Provider>
+    </CalculatorContext.Provider>
   )
+};
+
+CalculatorState.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired
 };
 
 export default CalculatorState;

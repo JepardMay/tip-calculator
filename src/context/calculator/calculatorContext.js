@@ -1,5 +1,5 @@
 import { createContext } from "react";
 
-const calcatorContext = createContext();
+const calculatorContext = createContext();
 
-export default calcatorContext;
+export default calculatorContext;

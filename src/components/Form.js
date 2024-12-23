@@ -13,9 +13,9 @@ const Form = () => {
     <div className="form">
       <div className="form__wrapper">
         <div className="form__column">
-          <Input label="Bill" id="bill" value={bill} icon="dollar" placeholder="0"/>
+          <Input label="Bill" id="bill" max={9000000} value={bill} icon="dollar" placeholder="0"/>
           <RadioBtns />
-          <Input label="Number of People" id="numberOfPeople" value={numberOfPeople} icon="person" placeholder="0"/>
+          <Input label="Number of People" max={90000} id="numberOfPeople" value={numberOfPeople} icon="person" placeholder="0"/>
         </div>
         <div className="form__column">
           <Output/>

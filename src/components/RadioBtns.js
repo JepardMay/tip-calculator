@@ -32,6 +32,7 @@ const RadioBtns = () => {
       type: 'input',
       text: 'Custom',
       value: '0',
+      max: 250,
       id: 'custom'
     },
   ];
@@ -41,8 +42,8 @@ const RadioBtns = () => {
       <p className="radio-btns-wrapper__label">Select Tip %</p>
       <ul className="radio-btns-wrapper__list">
         {btnData.map((btn, i) => {
-          return <li className="radio-btns-wrapper__item" key={i}>
-            <RadioBtn text={btn.text} id={btn.id} value={btn.value} name="persent" type={btn.type}/>
+          return <li className="radio-btns-wrapper__item" key={i + 1}>
+            <RadioBtn text={btn.text} id={btn.id} max={btn.max} value={btn.value} name="percent" type={btn.type}/>
           </li>
         })} 
       </ul>
